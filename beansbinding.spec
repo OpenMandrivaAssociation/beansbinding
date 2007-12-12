@@ -11,9 +11,11 @@ Group:		Development/Java
 #
 Source0:        https://beansbinding.dev.java.net/files/documents/6779/73673/beansbinding-1.2.1-src.zip
 BuildRequires:	jpackage-utils >= 1.6
+BuildRequires:	java >= 1.6
 BuildRequires:  ant
 BuildRequires:  ant-nodeps
 BuildRequires:  ant-junit
+Requires:	java >= 1.6
 BuildArch:      noarch
 BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root
 
