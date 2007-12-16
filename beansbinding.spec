@@ -2,7 +2,7 @@
 
 Name:		beansbinding
 Version:	1.2.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Epoch:		0
 Summary:        Beans Binding API
 License:        LGPL
@@ -10,7 +10,7 @@ Url:            https://beansbinding.dev.java.net/
 Group:		Development/Java
 #
 Source0:        https://beansbinding.dev.java.net/files/documents/6779/73673/beansbinding-1.2.1-src.zip
-BuildRequires:	jpackage-utils >= 1.6
+BuildRequires:	java-rpmbuild >= 1.6
 BuildRequires:	java-devel >= 1.6
 BuildRequires:	java >= 1.6
 BuildRequires:  ant
