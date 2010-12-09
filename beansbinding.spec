@@ -2,7 +2,7 @@
 
 Name:		beansbinding
 Version:	1.2.1
-Release:	%mkrel 5
+Release:	%mkrel 6
 Epoch:		0
 Summary:        Beans Binding API
 License:        LGPL
