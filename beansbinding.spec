@@ -2,7 +2,7 @@
 
 Name:		beansbinding
 Version:	1.2.1
-Release:	%mkrel 6
+Release:	7
 Epoch:		0
 Summary:        Beans Binding API
 License:        LGPL
@@ -18,7 +18,6 @@ BuildRequires:  ant-nodeps
 BuildRequires:  ant-junit
 Requires:	java >= 1.6
 BuildArch:      noarch
-BuildRoot:       %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 In essence, Beans Binding (JSR 295) is about keeping two properties
@@ -36,7 +35,6 @@ Requires(postun): /bin/rm
 Javadoc for %{name}.
 
 %prep
-%{__rm} -fr %{buildroot}
 %setup -q -c -n %{name}-%{version}
 # remove all binary libs
 find . -name "*.jar" -exec %{__rm} -f {} \;
@@ -52,11 +50,8 @@ ant dist
 %{__ln_s} %{name}-%{version}.jar %{buildroot}%{_javadir}/%{name}.jar
 # javadoc
 %{__install} -d -m 755 %{buildroot}%{_javadocdir}/%{name}-%{version}
-%{__cp} -pr dist/javadoc/* %{buildroot}%{_javadocdir}/%{name}-%{version}
+cp -pr dist/javadoc/* %{buildroot}%{_javadocdir}/%{name}-%{version}
 (cd %{buildroot}%{_javadocdir} && ln -sf %{name}-%{version} %{name})
-
-%clean
-%{__rm} -rf %{buildroot}
 
 %post javadoc
 %{__rm} -f %{_javadocdir}/%{name}
@@ -77,3 +72,27 @@ fi
 %dir %{_javadocdir}/%{name}-%{version}
 %{_javadocdir}/%{name}-%{version}/*
 %ghost %{_javadocdir}/%{name}
+
+
+%changelog
+* Thu Dec 09 2010 Oden Eriksson <oeriksson@mandriva.com> 0:1.2.1-6mdv2011.0
++ Revision: 616745
+- the mass rebuild of 2010.0 packages
+
+* Tue Sep 01 2009 Thierry Vignaud <tv@mandriva.org> 0:1.2.1-5mdv2010.0
++ Revision: 424026
+- rebuild
+
+* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 0:1.2.1-4mdv2009.0
++ Revision: 243208
+- rebuild
+
+* Sun Dec 16 2007 Anssi Hannula <anssi@mandriva.org> 0:1.2.1-2mdv2008.1
++ Revision: 120835
+- buildrequire java-rpmbuild, i.e. build with icedtea on x86(_64)
+
+* Thu Dec 13 2007 Jaroslav Tulach <jtulach@mandriva.org> 0:1.2.1-1mdv2008.1
++ Revision: 119152
+- First package of beansbinding library
+- create beansbinding
+
